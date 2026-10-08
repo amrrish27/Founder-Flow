@@ -6,11 +6,39 @@
       "use": "@vercel/static"
     },
     {
-      "src": "api/**/*.py",
+      "src": "api/health.py",
       "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
+      "config": { "maxLambdaSize": "50mb" }
+    },
+    {
+      "src": "api/predict.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
+    },
+    {
+      "src": "api/model-metrics.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
+    },
+    {
+      "src": "api/feature-importance.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
+    },
+    {
+      "src": "api/idea/analyze.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
+    },
+    {
+      "src": "api/financial/plan.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
+    },
+    {
+      "src": "api/competitor/compare.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
     }
   ],
   "routes": [
@@ -21,7 +49,7 @@
     { "src": "/api/idea/analyze", "dest": "/api/idea/analyze.py" },
     { "src": "/api/financial/plan", "dest": "/api/financial/plan.py" },
     { "src": "/api/competitor/compare", "dest": "/api/competitor/compare.py" },
-    { "src": "/(.*)", "dest": "/frontend/$1" },
-    { "src": "/", "dest": "/frontend/index.html" }
+    { "src": "/", "dest": "/frontend/index.html" },
+    { "src": "/(.*)", "dest": "/frontend/$1" }
   ]
 }
