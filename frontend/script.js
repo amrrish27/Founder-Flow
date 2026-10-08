@@ -1,5 +1,5 @@
 "use strict";
-const API_URL="http://127.0.0.1:8000";
+const API_URL="/api";
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 const titles={dashboard:"Overview",idea:"Idea Analyzer",finance:"Financial Planner",competitor:"Competitor Benchmark",prediction:"ML Prediction",importance:"Model Insights"};
 const state={metrics:null,importance:[]};
