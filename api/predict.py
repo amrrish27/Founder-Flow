@@ -8,7 +8,7 @@ import sys
 from http.server import BaseHTTPRequestHandler
 
 # Add parent directory to path so we can import shared modules
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, os.path.dirname(__file__))
 
 from _lib.predictor import predict_startup, get_feature_importance, get_metrics
 from _lib.cors import cors_headers, handle_options
