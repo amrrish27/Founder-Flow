@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="FounderFlow — machine-learning startup success intelligence workspace">
+  <title>FounderFlow — ML Startup Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=6.0.0">
+</head>
+<body>
+<div id="introScreen" class="intro-screen" aria-hidden="false">
+  <div class="intro-orb"></div><div class="intro-grid"></div>
+  <div class="intro-mark">FF</div><div class="intro-name">FounderFlow</div>
+  <div class="intro-subtitle">MACHINE LEARNING · STARTUP INTELLIGENCE</div>
+  <div class="intro-loader"><span></span></div><div class="intro-loading-text">Loading intelligence workspace</div>
+</div>
+<div class="app-shell">
+  <div id="mobileOverlay" class="mobile-overlay"></div>
+  <aside id="sidebar" class="sidebar">
+    <div class="brand"><div class="brand-mark">F</div><div><strong>FounderFlow</strong><small>ML Startup Intelligence</small></div><button id="closeSidebar" class="icon-btn mobile-only">×</button></div>
+    <div class="nav-label">ML WORKSPACE</div>
+    <nav class="navigation">
+      <button class="nav-link active" data-section="dashboard"><span>⌂</span>Overview</button>
+      <button class="nav-link" data-section="idea"><span>✦</span>Idea Analyzer</button>
+            <button class="nav-link" data-section="finance"><span>◫</span>Financial Planner</button>
+      <button class="nav-link" data-section="competitor"><span>◇</span>Competitor Benchmark</button>
+      <button class="nav-link" data-section="prediction"><span>◎</span>ML Prediction</button>
+      <button class="nav-link" data-section="importance"><span>◉</span>Model Insights</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="endpoint-card"><div><span class="live-dot"></span> API <span id="apiMiniStatus">checking</span></div><small>127.0.0.1:8000</small></div><div class="sidebar-footer"><span>FOUNDERFLOW</span><span>v7.0</span></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="topbar-left"><button id="openSidebar" class="icon-btn mobile-only">☰</button><div><div class="topbar-kicker">ML FOUNDER WORKSPACE</div><div id="pageTitle" class="topbar-title">Overview</div></div></div><div class="topbar-actions"><button id="themeToggle" class="theme-toggle">☾ <span id="themeLabel">Dark</span></button><div id="apiStatus" class="api-status"><span class="status-indicator checking"></span>Checking API</div></div></header>
+    <div class="content">
+      <section id="dashboard" class="page-section active">
+        <div class="hero panel">
+          <div><div class="eyebrow">✦ MACHINE LEARNING WORKSPACE</div><h1>Turn startup data into <span>founder intelligence.</span></h1><p>Validate an idea, plan cash flow and estimate startup success probability with a leakage-safe ML model.</p><div class="hero-actions"><button class="primary-button" data-go="prediction">Run ML prediction →</button><button class="secondary-button" data-go="competitor">Compare a competitor</button></div></div>
+          <div class="hero-orbit"><div class="orbit-ring"></div><div class="orbit-core">ML</div><span class="orbit-chip chip-1">DATA</span><span class="orbit-chip chip-2">MODEL</span><span class="orbit-chip chip-3">INSIGHT</span></div>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card"><small>API STATUS</small><strong id="dashboardStatus">Checking</strong><span>FastAPI health</span></div>
+          <div class="metric-card"><small>MODEL</small><strong id="dashboardModel">Loading</strong><span id="dashboardModelVersion">Leakage-safe classifier</span></div>
+          <div class="metric-card"><small>DATASET</small><strong id="dashboardRows">—</strong><span>training records</span></div>
+          <div class="metric-card"><small>ML SIGNAL</small><strong id="dashboardAuc">—</strong><span>test ROC-AUC</span></div>
+        </div>
+        <div class="grid-2">
+          <div class="panel"><div class="section-heading"><div><small>WORKSPACE</small><h2>Build → assess → predict</h2></div></div><div class="quick-grid"><button data-go="idea"><b>Idea Analyzer</b><span>Structured validation score</span></button><button data-go="finance"><b>Financial Planner</b><span>Burn + runway + break-even</span></button><button data-go="prediction"><b>ML Prediction</b><span>Success / failure probability</span></button></div></div>
+          <div class="panel"><div class="section-heading"><div><small>MODEL SNAPSHOT</small><h2>Feature signals</h2></div><button class="text-button" data-go="importance">View model →</button></div><div id="dashboardImportance" class="mini-bars"></div></div>
+        </div>
+      </section>
+
+      <section id="idea" class="page-section">
+        <div class="page-header"><div><div class="eyebrow">VALIDATION ANALYTICS</div><h1>Startup Idea Analyzer</h1><p>A structured feasibility score based on how complete and testable your startup hypothesis is.</p></div></div>
+        <div class="grid-2">
+          <form id="ideaForm" class="panel form-panel">
+            <div class="field full"><label>Business idea</label><textarea id="ideaText" required placeholder="Example: A browser-based AI study coach for engineering students that turns lecture notes into adaptive quizzes and tracks weak topics."></textarea><div class="input-helper"><span>Describe what you are building + who uses it + the outcome.</span><span class="hint-chip">Who</span><span class="hint-chip">Problem</span><span class="hint-chip">Outcome</span></div></div>
+            <div class="field"><label>Industry</label><select id="ideaIndustry"><option>Software</option><option>AI/ML</option><option>Fintech</option><option>Healthtech</option><option>E-commerce</option><option>Education</option><option>Other</option></select></div>
+            <div class="field"><label>Target customer</label><input id="ideaCustomer" placeholder="e.g. engineering students"></div>
+            <div class="field"><label>Estimated MVP budget (USD)</label><input id="ideaBudget" type="number" min="0" placeholder="10000"></div>
+            <div class="field full"><label>Problem</label><input id="ideaProblem" placeholder="What painful problem are users facing today?"></div>
+            <div class="field full"><label>Solution</label><input id="ideaSolution" placeholder="What does your product do differently to solve it?"></div>
+            <button class="primary-button full" type="submit">Analyze idea <span>→</span></button>
+          </form>
+          <div id="ideaResult" class="panel result-panel">
+            <div class="result-preview"><div class="preview-icon">✦</div><h2>Your validation brief</h2><p>Complete the fields on the left to generate a score, strengths, weaknesses, risks and concrete next steps.</p><div class="preview-grid"><div><b>01</b><span>Feasibility</span></div><div><b>02</b><span>Risks</span></div><div><b>03</b><span>Actions</span></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="finance" class="page-section">
+        <div class="page-header"><div><div class="eyebrow">FINANCIAL ANALYTICS</div><h1>Startup Financial Planner</h1><p>Model cash burn, runway, break-even and a 12-month projection.</p></div></div>
+        <form id="financeForm" class="panel form-panel"><div class="field"><label>Initial investment (USD)</label><input id="finInvestment" type="number" value="100000"></div><div class="field"><label>Current monthly revenue (USD)</label><input id="finRevenue" type="number" value="12000"></div><div class="field"><label>Monthly expenses (USD)</label><input id="finExpenses" type="number" value="20000"></div><div class="field"><label>Monthly revenue growth %</label><input id="finRevenueGrowth" type="number" value="5" step="0.5"></div><div class="field"><label>Monthly expense growth %</label><input id="finExpenseGrowth" type="number" value="3" step="0.5"></div><div class="field"><label>Price / unit (USD)</label><input id="finPrice" type="number" value="100"></div><div class="field"><label>Variable cost / unit (USD)</label><input id="finVariable" type="number" value="30"></div><div class="field"><label>Fixed monthly costs (USD)</label><input id="finFixed" type="number" value="15000"></div><button class="primary-button full" type="submit">Build projection →</button></form><div id="financeResult"></div>
+      </section>
+
+      <section id="competitor" class="page-section">
+        <div class="page-header"><div><div class="eyebrow">COMPETITIVE INTELLIGENCE</div><h1>Competitor Benchmark</h1><p>Compare your startup with one competitor, identify the gaps and turn the comparison into concrete actions.</p></div></div>
+        <div class="grid-2">
+          <form id="competitorForm" class="panel form-panel">
+            <div class="form-section-title full"><small>YOUR STARTUP</small></div>
+            <div class="field"><label>Startup name</label><input id="compStartupName" value="My Startup"></div>
+            <div class="field"><label>Product / solution</label><textarea id="compStartupProduct" required placeholder="What does your product do?"></textarea></div>
+            <div class="field"><label>Target customer</label><input id="compStartupCustomer" placeholder="e.g. small online retailers"></div>
+            <div class="field"><label>Price / month (USD)</label><input id="compStartupPrice" type="number" min="0" placeholder="49"></div>
+            <div class="field full"><label>Your key advantage</label><textarea id="compStartupAdvantage" placeholder="What can you do noticeably better or differently?"></textarea></div>
+            <div class="form-section-title full"><small>COMPETITOR</small></div>
+            <div class="field"><label>Competitor name</label><input id="compName" required placeholder="Competitor name"></div>
+            <div class="field"><label>Competitor product</label><textarea id="compProduct" placeholder="What does the competitor offer?"></textarea></div>
+            <div class="field"><label>Competitor customer</label><input id="compCustomer" placeholder="Who do they serve?"></div>
+            <div class="field"><label>Competitor price / month (USD)</label><input id="compPrice" type="number" min="0" placeholder="79"></div>
+            <div class="field"><label>Competitor strengths</label><textarea id="compStrengths" placeholder="Known strengths: brand, distribution, features, etc."></textarea></div>
+            <div class="field"><label>Competitor weaknesses</label><textarea id="compWeaknesses" placeholder="Verified gaps or complaints you have evidence for."></textarea></div>
+            <button class="primary-button full" type="submit">Compare & build action plan →</button>
+          </form>
+          <div id="competitorResult" class="panel result-panel">
+            <div class="result-preview"><div class="preview-icon">◇</div><h2>Competitive benchmark</h2><p>Enter your startup and a competitor to see where the positioning overlaps, where gaps exist and what to test next.</p><div class="preview-grid"><div><b>01</b><span>Compare</span></div><div><b>02</b><span>Find gaps</span></div><div><b>03</b><span>Act</span></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="prediction" class="page-section">
+        <div class="page-header"><div><div class="eyebrow">CORE MACHINE LEARNING</div><h1>Startup Success Prediction</h1><p>Predict <b>success probability vs failure probability</b> from pre-outcome startup signals. <b>exit_type is excluded.</b></p></div></div>
+        <form id="predictionForm" class="panel form-panel prediction-form">
+          <div class="field"><label>Founded year</label><input id="founded_year" type="number" value="2018"></div><div class="field"><label>Country code</label><input id="country" type="number" value="0"></div><div class="field"><label>Region code</label><input id="region" type="number" value="0"></div><div class="field"><label>Industry code</label><input id="industry" type="number" value="0"></div><div class="field"><label>Employees</label><input id="employee_count" type="number" value="25"></div><div class="field"><label>Revenue (USD)</label><input id="estimated_revenue_usd" type="number" value="250000"></div><div class="field"><label>Valuation (USD)</label><input id="estimated_valuation_usd" type="number" value="2000000"></div><div class="field"><label>Funding round (0–6)</label><input id="funding_round" type="number" min="0" max="6" value="2"></div><div class="field"><label>Funding amount (USD)</label><input id="funding_amount_usd" type="number" value="500000"></div><div class="field"><label>Lead investor code</label><input id="lead_investor" type="number" value="0"></div><div class="field"><label>Co-investors</label><input id="co_investors" type="number" value="2"></div><div class="field"><label>Funding year</label><input id="funding_year" type="number" value="2022"></div><div class="field"><label>Funding month</label><input id="funding_month" type="number" min="1" max="12" value="6"></div><div class="field"><label>Tags code</label><input id="tags" type="number" value="0"></div>
+          <button class="primary-button full" type="submit">Run ML prediction →</button>
+        </form>
+        <div id="resultPanel" class="prediction-result"></div>
+      </section>
+
+      <section id="importance" class="page-section">
+        <div class="page-header"><div><div class="eyebrow">MODEL TRANSPARENCY</div><h1>Model Insights</h1><p>Evaluation metrics, feature importance and the leakage-safe design of the ML experiment.</p></div></div>
+        <div class="metrics-grid" id="modelMetrics"></div>
+        <div class="grid-2"><div class="panel"><div class="section-heading"><div><small>GLOBAL SIGNALS</small><h2>Feature importance</h2></div></div><div id="importanceList" class="importance-list"></div></div><div class="panel"><div class="section-heading"><div><small>ML NOTE</small><h2>What the model actually knows</h2></div></div><p class="muted">The target <code>exited</code> is predicted without using <code>exit_type</code>, which is only known after an outcome. This avoids direct target leakage.</p><div class="notice">The current dataset has weak predictive signal. ROC-AUC near 0.50 means the model should be presented as an experiment and learning project, not as a guaranteed business decision engine.</div><div id="modelNote" class="model-note"></div></div></div>
+      </section>
+    </div>
+  </main>
+</div>
+<div id="toast" class="toast"><span id="toastIcon">✓</span><span id="toastMessage">Done</span></div>
+<script src="script.js?v=7.0.0"></script>
+</body></html>

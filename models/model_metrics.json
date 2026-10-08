@@ -1,0 +1,48 @@
+{
+  "model": "Random Forest",
+  "model_version": "7.0.0",
+  "leakage_safe": true,
+  "excluded_features": [
+    "exit_type"
+  ],
+  "features": [
+    "founded_year",
+    "country",
+    "region",
+    "industry",
+    "funding_round",
+    "funding_amount_usd",
+    "lead_investor",
+    "co_investors",
+    "employee_count",
+    "estimated_revenue_usd",
+    "estimated_valuation_usd",
+    "tags",
+    "funding_year",
+    "funding_month"
+  ],
+  "dataset_rows": 50000,
+  "test_rows": 10000,
+  "target": "exited",
+  "positive_class": "success/exit",
+  "probability_note": "The success/failure percentages are model probabilities. The dataset has weak predictive signal, so they should not be treated as guarantees.",
+  "results": {
+    "Random Forest": {
+      "accuracy": 0.8358,
+      "precision": 0.9054933140585472,
+      "recall": 0.8174551386623164,
+      "f1": 0.8592249657064472,
+      "roc_auc": 0.8461868389881593,
+      "confusion_matrix": [
+        [
+          3347,
+          523
+        ],
+        [
+          1119,
+          5011
+        ]
+      ]
+    }
+  }
+}

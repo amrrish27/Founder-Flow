@@ -1,0 +1,13 @@
+# Python venv — never commit to git
+backend/venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Dataset (large files — optional, exclude if too big)
+# dataset/
+
+# Keep models tracked (needed by Vercel serverless functions)
+!models/best_model.pkl
+!models/model_metrics.json

@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/api/health", "dest": "/api/health.py" },
+    { "src": "/api/predict", "dest": "/api/predict.py" },
+    { "src": "/api/model-metrics", "dest": "/api/model-metrics.py" },
+    { "src": "/api/feature-importance", "dest": "/api/feature-importance.py" },
+    { "src": "/api/idea/analyze", "dest": "/api/idea/analyze.py" },
+    { "src": "/api/financial/plan", "dest": "/api/financial/plan.py" },
+    { "src": "/api/competitor/compare", "dest": "/api/competitor/compare.py" },
+    { "src": "/(.*)", "dest": "/frontend/$1" },
+    { "src": "/", "dest": "/frontend/index.html" }
+  ]
+}
