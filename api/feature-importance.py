@@ -6,7 +6,7 @@ import os
 import sys
 from http.server import BaseHTTPRequestHandler
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, os.path.dirname(__file__))
 
 from _lib.predictor import get_feature_importance
 from _lib.cors import cors_headers, handle_options
